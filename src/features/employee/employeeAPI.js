@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export async function fetchEmployees() {
     try{
-        let employees = await axios.get("http://localhost:4000/api/employees");
+        let employees = await axios.get("https://employeeappbackend-production.up.railway.app/api/employees");
         return employees.data.data;
     }catch(error){
         return [];
@@ -12,7 +12,7 @@ export async function fetchEmployees() {
 }
 
 export async function addEmployee(data){
-    let response = await axios.post('http://localhost:4000/api/save_employee',data,{
+    let response = await axios.post('https://employeeappbackend-production.up.railway.app',data,{
         headers:{
             "Content-Type":"application/json"
         }
@@ -21,7 +21,7 @@ export async function addEmployee(data){
 }
 
 export async function updateEmployee(email,data){
-    let response = await axios.put(`http://localhost:4000/api/update_employee?email=${email}`,data,{
+    let response = await axios.put(`https://employeeappbackend-production.up.railway.app?email=${email}`,data,{
         headers:{
             "Content-Type":"application/json"
         }
@@ -30,12 +30,12 @@ export async function updateEmployee(email,data){
 }
 
 export async function getEmployeeByEmail(email){
-    let response = await axios.get(`http://localhost:4000/api/get_employee_by_email?email=${email}`);
+    let response = await axios.get(`https://employeeappbackend-production.up.railway.app?email=${email}`);
     return response.data;
 }
 
 export async function deleteEmployee(email){
-    let response = await axios.delete(`http://localhost:4000/api/delete_employee?email=${email}`,{
+    let response = await axios.delete(`https://employeeappbackend-production.up.railway.app?email=${email}`,{
         headers:{
             "Content-Type":"application/json"
         }
